@@ -26,6 +26,7 @@ public class MainHook implements IXposedHookLoadPackage {
         if (!lparam.packageName.equals(Util.packageToHook)) {
             return;
         }
+        FileUtil.Companion.initVariableName();
         XposedBridge.log("完全屏蔽群消息 开始进行hook");
         //聊天数据发生变化时会调用这个方法.
         XposedHelpers.findAndHookMethod("android.widget.BaseAdapter", lparam.classLoader,
@@ -61,7 +62,7 @@ public class MainHook implements IXposedHookLoadPackage {
     private void hookNotifyDataSetChanged(XC_MethodHook.MethodHookParam param) {
 
         XposedBridge.log(param.thisObject.getClass().getName());
-        if (!param.thisObject.getClass().getName().equals(Util.adapterClassName)) {
+        if (!param.thisObject.getClass().getName().equals(Util.Class_Conversation_List_View_Adapter_Name)) {
             XposedBridge.log("完全屏蔽群消息 notifyDataSetChanged不匹配.");
             return;
         }

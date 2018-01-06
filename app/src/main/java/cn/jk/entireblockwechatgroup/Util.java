@@ -8,8 +8,8 @@ import de.robv.android.xposed.XposedHelpers;
  */
 
 public class Util {
-    public static final String packageToHook = "com.tencent.mm";
-    public static final String adapterClassName = "com.tencent.mm.ui.conversation.g";
+    public static String packageToHook = "com.tencent.mm";
+    public static String Class_Conversation_List_View_Adapter_Name = "com.tencent.mm.ui.conversation.g";
     public static String Method_Adapter_Get_Object_Step_1 = "wBE";
     public static String Method_Adapter_Get_Object_Step_2 = "wza";
     public static String Method_Adapter_Get_Object_Step_3 = "BO";
